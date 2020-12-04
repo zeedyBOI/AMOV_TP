@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">AMOV_TP</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="list_title">List Title</string>
     <string name="total_default">€000,00</string>
     <string name="main_title">Shopping Lists</string>
+    <string name="submit">Add new list</string>
+    <string name="title_activity_list_items">ListItemsActivity</string>
+    <string name="dialog_placeholder">New Item</string>
+    <string name="dialog_create_new">Create New</string>
 </resources>
