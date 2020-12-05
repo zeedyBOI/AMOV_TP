@@ -8,4 +8,8 @@ data class Item(val category : Category, var designation : String, var brand : S
     override fun toString(): String {
         return "Item(category=$category, designation='$designation', brand='$brand', quantity='$quantity', priceHistory=$priceHistory, notes='$notes')"
     }
+
+    fun toStringSmall() : String {
+        return designation;
+    }
 }

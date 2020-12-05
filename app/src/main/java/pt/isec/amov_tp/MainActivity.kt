@@ -4,6 +4,8 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.ArrayAdapter
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import android.widget.Toast
@@ -14,6 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.list.*
+import kotlinx.android.synthetic.main.new_list_dialog.*
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        for (i in 1..10)
+        for (i in 1..20)
             data.itemsList.add(Item(Category.BEBIDA, getStr(5, 10), "", getStr(1,3), "", listOf(), ""))
         val list1 = ShoppingList("Continente","€10,55", mutableListOf())
         val list2 = ShoppingList("Minipreço", "€20,42", mutableListOf())
@@ -78,17 +81,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onAddNewList(view: View?) {
-        val dialog = AlertDialog.Builder(this).setTitle("New List").setView(R.layout.new_list_dialog).setIcon(android.R.drawable.ic_menu_add)
-                .setSingleChoiceItems(data.itemsList.map { it -> it.toString() }.toTypedArray(), 0, DialogInterface.OnClickListener{ dialog, which ->
-                    Toast.makeText(this,"Item: $which",Toast.LENGTH_LONG).show()
-                })
+        var newTitle = " "
+        AlertDialog.Builder(this).setTitle("New List").setIcon(android.R.drawable.ic_menu_add).setMessage("Give your list a name!")
+                .setView(R.layout.new_list_dialog)
                 .setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, which ->
-                    Toast.makeText(this,"Carreguei...",Toast.LENGTH_LONG).show()
+                    var x = findViewById<EditText>(R.id.new_list_title)
+                    Toast.makeText(this, newTitle, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, x.text, Toast.LENGTH_LONG).show()
+                    if (!newTitle.isNullOrEmpty()) {
+                        newTitle = new_list_title.text.toString().trim()
+                        Toast.makeText(this, newTitle, Toast.LENGTH_LONG).show()
+                        val intent = Intent(this, ListItemsActivity::class.java)
+                        intent.putExtra("listName", newTitle)
+                        startActivity(intent)
+                    }
+                    else
+                        new_list_title.setError("Give it a name!")
                 })
-                .setCancelable(false)
+                .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which ->
+                    dialog.dismiss()
+                })
+                .setCancelable(true)
                 .create()
-
-        dialog.show()
+                .show()
     }
 
     class RVAdapter(val data : Data) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
