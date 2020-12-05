@@ -26,7 +26,7 @@ class ListItemsActivity : AppCompatActivity() {
     }
 
     fun onAddNewItem(view: View?) {
-        val items = data.itemsList.map { it -> it.toStringSmall() }.sorted().toTypedArray()
+        val items = data.productsList.map { it -> it.toStringSmall() }.sorted().toTypedArray()
         AlertDialog.Builder(this).setTitle("New Item").setIcon(android.R.drawable.ic_menu_add)
                 .setSingleChoiceItems(items, 0, DialogInterface.OnClickListener{ dialog, which ->
                     Toast.makeText(this,"Item: $which", Toast.LENGTH_LONG).show()

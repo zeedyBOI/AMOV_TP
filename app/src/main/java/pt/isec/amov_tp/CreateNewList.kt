@@ -7,17 +7,17 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_create_new_list.*
 import pt.isec.amov_tp.data.Data
-import pt.isec.amov_tp.data.Item
+import pt.isec.amov_tp.data.Product
 import pt.isec.amov_tp.data.ShoppingList
 import kotlin.random.Random
 
 class CreateNewList : AppCompatActivity() {
-    var data : Data = Data(arrayListOf(), arrayListOf())
+    var data : Data = Data(arrayListOf(), arrayListOf(), arrayListOf())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_list)
         for (i in 1..20)
-            data.itemsList.add(Item("BEBIDA", getStr(5, 10), "", getStr(1,3), "", arrayListOf(), ""))
+            data.productsList.add(Product(description= "Juice", priceHistory = arrayListOf(5.00, 10.00), notes = "", category = "Drinks", srcimg = ""))
         val list1 = ShoppingList("Continente","€10,55", arrayListOf())
         val list2 = ShoppingList("Minipreço", "€20,42", arrayListOf())
         val list3 = ShoppingList("Lidl", "€420.69", arrayListOf())

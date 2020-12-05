@@ -2,14 +2,14 @@ package pt.isec.amov_tp.data
 
 import java.io.Serializable
 
-data class Item(val category : String, var designation : String, var brand : String = "Any", var quantity : String, var srcImage : String = "null", var priceHistory : ArrayList<Double>, var notes : String) : Serializable {
+data class Item(var product: Product, var quantity : Quantity, var inCart : Boolean = false) : Serializable {
 
 
     override fun toString(): String {
-        return "Item(category=$category, designation='$designation', brand='$brand', quantity='$quantity', priceHistory=$priceHistory, notes='$notes')"
+        return "Item(category=$product.category, description='$product.description', brand='$product.brand', quantity='$quantity', priceHistory=${product.priceHistory}, notes='$product.notes')"
     }
 
     fun toStringSmall() : String {
-        return designation;
+        return product.description;
     }
 }

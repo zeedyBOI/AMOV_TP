@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         for (i in 1..20)
-            data.itemsList.add(Item("BEBIDA", getStr(5, 10), "", getStr(1,3), "", arrayListOf(), ""))
+            data.productsList.add(Item("BEBIDA", getStr(5, 10), "", getStr(1,3), "", arrayListOf(), ""))
         val list1 = ShoppingList("Continente","€10,55", arrayListOf())
         val list2 = ShoppingList("Minipreço", "€20,42", arrayListOf())
         val list3 = ShoppingList("Lidl", "€420.69", arrayListOf())
