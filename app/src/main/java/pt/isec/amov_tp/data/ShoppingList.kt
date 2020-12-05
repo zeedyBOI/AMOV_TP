@@ -1,8 +1,5 @@
-package pt.isec.amov_tp
+package pt.isec.amov_tp.data
 
-import android.os.Parcelable
-import androidx.versionedparcelable.ParcelField
-import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 
 data class ShoppingList(var name : String, var listItems : ArrayList<Item>) : Serializable {

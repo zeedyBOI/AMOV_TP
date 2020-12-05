@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import pt.isec.amov_tp.data.Data
 
 class ListItemsActivity : AppCompatActivity() {
     lateinit var data : Data
