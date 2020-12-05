@@ -1,14 +1,12 @@
 package pt.isec.amov_tp
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.ArrayAdapter
-import android.widget.EditText
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,22 +14,22 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.list.*
-import kotlinx.android.synthetic.main.new_list_dialog.*
+import java.io.*
+import java.lang.StringBuilder
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
-    val data = Data(mutableListOf(), mutableListOf())
+    var data : Data = Data(arrayListOf(), arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         for (i in 1..20)
-            data.itemsList.add(Item(Category.BEBIDA, getStr(5, 10), "", getStr(1,3), "", listOf(), ""))
-        val list1 = ShoppingList("Continente","€10,55", mutableListOf())
-        val list2 = ShoppingList("Minipreço", "€20,42", mutableListOf())
-        val list3 = ShoppingList("Lidl", "€420.69", mutableListOf())
+            data.itemsList.add(Item("BEBIDA", getStr(5, 10), "", getStr(1,3), "", arrayListOf(), ""))
+        val list1 = ShoppingList("Continente","€10,55", arrayListOf())
+        val list2 = ShoppingList("Minipreço", "€20,42", arrayListOf())
+        val list3 = ShoppingList("Lidl", "€420.69", arrayListOf())
         data.shopList.add(list1)
         data.shopList.add(list2)
         data.shopList.add(list3)
@@ -81,29 +79,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onAddNewList(view: View?) {
-        var newTitle = " "
-        AlertDialog.Builder(this).setTitle("New List").setIcon(android.R.drawable.ic_menu_add).setMessage("Give your list a name!")
-                .setView(R.layout.new_list_dialog)
-                .setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, which ->
-                    var x = findViewById<EditText>(R.id.new_list_title)
-                    Toast.makeText(this, newTitle, Toast.LENGTH_LONG).show()
-                    Toast.makeText(this, x.text, Toast.LENGTH_LONG).show()
-                    if (!newTitle.isNullOrEmpty()) {
-                        newTitle = new_list_title.text.toString().trim()
-                        Toast.makeText(this, newTitle, Toast.LENGTH_LONG).show()
-                        val intent = Intent(this, ListItemsActivity::class.java)
-                        intent.putExtra("listName", newTitle)
-                        startActivity(intent)
-                    }
-                    else
-                        new_list_title.setError("Give it a name!")
-                })
-                .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which ->
-                    dialog.dismiss()
-                })
-                .setCancelable(true)
-                .create()
-                .show()
+        val intent = Intent(this, CreateNewList::class.java)
+        startActivity(intent)
     }
 
     class RVAdapter(val data : Data) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {

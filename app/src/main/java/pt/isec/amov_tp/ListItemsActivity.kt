@@ -8,7 +8,6 @@ import androidx.appcompat.app.AlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.new_list_dialog.*
 
 class ListItemsActivity : AppCompatActivity() {
     lateinit var data : Data
@@ -19,7 +18,6 @@ class ListItemsActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         data = intent.getSerializableExtra("data") as Data
         var listName = intent.getStringExtra("listName")
-        data.shopList.add(ShoppingList(new_list_title.text.toString(), mutableListOf()))
         findViewById<FloatingActionButton>(R.id.fab_addList).setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()

@@ -1,10 +1,10 @@
 package pt.isec.amov_tp
 
-enum class Category{
-    LATICINIOS, CARNE, PEIXE, CASA, HIGIENE, BEBIDA
-}
+import java.io.Serializable
 
-data class Item(val category : Category, var designation : String, var brand : String = "Any", var quantity : String, var srcImage : String = "null", var priceHistory : List<Double>, var notes : String) {
+data class Item(val category : String, var designation : String, var brand : String = "Any", var quantity : String, var srcImage : String = "null", var priceHistory : ArrayList<Double>, var notes : String) : Serializable {
+
+
     override fun toString(): String {
         return "Item(category=$category, designation='$designation', brand='$brand', quantity='$quantity', priceHistory=$priceHistory, notes='$notes')"
     }

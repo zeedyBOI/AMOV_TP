@@ -1,13 +1,15 @@
 package pt.isec.amov_tp
 
+import android.os.Parcelable
+import androidx.versionedparcelable.ParcelField
+import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 
-
-data class ShoppingList(var name : String, var listItems : MutableList<Item>) : Serializable {
+data class ShoppingList(var name : String, var listItems : ArrayList<Item>) : Serializable {
     var totalPrice = "0.0"
-    constructor(name: String, priceString: String, items: MutableList<Item>) : this(name, items) {
+    constructor(name: String, priceString: String, items: ArrayList<Item>) : this(name, items) {
         if (items.isNullOrEmpty())
-            listItems = mutableListOf()
+            listItems = arrayListOf()
         totalPrice = priceString
     }
 

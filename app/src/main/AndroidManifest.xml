@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMOV_TP">
+        <activity android:name=".CreateNewList"></activity>
         <activity
             android:name=".ListItemsActivity"
             android:label="@string/title_activity_list_items"
-            android:theme="@style/Theme.AMOV_TP.NoActionBar"></activity>
+            android:theme="@style/Theme.AMOV_TP.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
