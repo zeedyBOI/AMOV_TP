@@ -2,19 +2,13 @@ package pt.isec.amov_tp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_create_new_list.*
-import kotlinx.android.synthetic.main.activity_main.*
-import java.io.EOFException
-import java.io.FileNotFoundException
-import java.io.ObjectInputStream
+import pt.isec.amov_tp.data.Data
+import pt.isec.amov_tp.data.Item
+import pt.isec.amov_tp.data.ShoppingList
 import kotlin.random.Random
 
 class CreateNewList : AppCompatActivity() {

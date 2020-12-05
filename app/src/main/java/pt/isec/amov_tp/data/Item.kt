@@ -1,4 +1,4 @@
-package pt.isec.amov_tp
+package pt.isec.amov_tp.data
 
 import java.io.Serializable
 
