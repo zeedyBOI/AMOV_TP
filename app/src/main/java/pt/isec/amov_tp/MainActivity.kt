@@ -22,14 +22,7 @@ class MainActivity : AppCompatActivity(), RVAdapterList.OnItemClickListener, RVA
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        for (i in 0..20)
-            data.productsList.add(Product(getStr(5, 10), arrayListOf(), "notes", "brand", "category", "image"))
-        val list1 = ShoppingList("Continente","€10,55", arrayListOf())
-        val list2 = ShoppingList("Minipreço", "€20,42", arrayListOf())
-        val list3 = ShoppingList("Lidl", "€40.70", arrayListOf())
-        data.shopList.add(list1)
-        data.shopList.add(list2)
-        data.shopList.add(list3)
+        data.startData()
         shoppingList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         shoppingList.adapter = RVAdapterList(data, this, this)
     }

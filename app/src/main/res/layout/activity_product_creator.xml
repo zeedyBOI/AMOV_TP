@@ -182,7 +182,7 @@
                 android:id="@+id/btn_create_product"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
+                android:onClick="onCreateProduct"
                 android:text="@string/create"
                 app:layout_constraintStart_toEndOf="@+id/btn_cancel_product"
                 app:layout_constraintEnd_toEndOf="parent"

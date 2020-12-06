@@ -19,9 +19,7 @@ class ListItemsActivity : AppCompatActivity(), RVAdapterItem.OnItemClickListener
         val listName = intent.getStringExtra("listName")
         list_title.text = listName
         listName?.let { ShoppingList(it, arrayListOf()) }?.let { data.addList(it) }
-        for (x in 1..20)
-            data.shopList[0].listItems.add(Item(Product(getStr(5,10), arrayListOf(1.0, 5.0, 999.99), "notes", "brand", "category", "image"),
-                    Quantity(1.0, "caixas"), false))
+        data.startData()
         var mockList = data.shopList[0].listItems
         items_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         items_list.adapter = RVAdapterItem(mockList, this, this)
@@ -52,6 +50,7 @@ class ListItemsActivity : AppCompatActivity(), RVAdapterItem.OnItemClickListener
     fun onCreateNewItem(view: View) {
         val intent = Intent(this, CreateNewItemActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     override fun onItemClick(position: Int) {

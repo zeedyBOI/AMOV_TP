@@ -16,17 +16,7 @@ class CreateNewItemActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_item)
-        for (i in 1..20) {
-            data.productsList.add(
-                Product(
-                    description = getStr(5, 10),
-                    priceHistory = arrayListOf(5.00, 10.00),
-                    notes = "",
-                    category = "Drinks",
-                    srcimg = ""
-                )
-            )
-        }
+        data.startData()
         var list = arrayListOf<String>()
         list.add("No Template")
         for (x in data.productsList)

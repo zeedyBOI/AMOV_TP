@@ -5,7 +5,7 @@
     <string name="item_title">Item Title</string>
     <string name="total_default">€000,00</string>
     <string name="main_title">Shopping Lists</string>
-    <string name="submit">Add new list</string>
+    <string name="submit">Add</string>
     <string name="title_activity_list_items">ListItemsActivity</string>
     <string name="dialog_placeholder">New Item</string>
     <string name="dialog_create_new">Create New</string>

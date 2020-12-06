@@ -18,12 +18,7 @@ class CreateNewListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_list)
-        val list1 = ShoppingList("Continente","€10,55", arrayListOf())
-        val list2 = ShoppingList("Minipreço", "€20,42", arrayListOf())
-        val list3 = ShoppingList("Lidl", "€420.69", arrayListOf())
-        data.shopList.add(list1)
-        data.shopList.add(list2)
-        data.shopList.add(list3)
+        data.startData()
         var list = arrayListOf<String>()
         list.add("No Template")
         for (x in data.shopList)

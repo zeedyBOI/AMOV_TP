@@ -1,6 +1,7 @@
 package pt.isec.amov_tp
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,12 +18,9 @@ class ProductCreatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_creator)
-        for (i in 1..10)
-            data.addCategory(getStr(5, 10))
+        data.startData()
         var adapterCategory = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data.categoryList)
         spinner_category.adapter = adapterCategory
-        for (i in 1..5)
-            data.addUnit(getStr(3,5))
         var adapterUnits = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data.unitList)
         spinner_units.adapter = adapterUnits
     }
@@ -38,8 +36,6 @@ class ProductCreatorActivity : AppCompatActivity() {
 
     fun onPriceHistory(view: View) {
         var price_list = arrayListOf<String>()
-        for (i in 1..10)
-            price_list.add(getStr(3, 5))
         var priceAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, price_list)
         var dialog = AlertDialog.Builder(this).setAdapter(priceAdapter, null).setTitle("Price History")
             .setNegativeButton("Ok", DialogInterface.OnClickListener { dialog, which ->
@@ -71,5 +67,11 @@ class ProductCreatorActivity : AppCompatActivity() {
                 dialog.dismiss()
             })
             .create().show()
+    }
+
+    fun onCreateProduct(view: View) {
+        val intent = Intent(this, ListItemsActivity::class.java)
+        intent.putExtra("listName", "Continente")
+        startActivity(intent)
     }
 }
