@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
             android:text="@string/cancel"
-            android:onClick="onCancel"
+            android:onClick="onCancelList"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

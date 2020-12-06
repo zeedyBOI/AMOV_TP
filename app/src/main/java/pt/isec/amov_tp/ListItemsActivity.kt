@@ -1,18 +1,12 @@
 package pt.isec.amov_tp
 
-import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_list_items.*
-import kotlinx.android.synthetic.main.create_item_dialog.*
-import kotlinx.android.synthetic.main.item.*
 import pt.isec.amov_tp.data.*
 import kotlin.random.Random
 
@@ -55,27 +49,10 @@ class ListItemsActivity : AppCompatActivity(), RVAdapterItem.OnItemClickListener
         }
     }
 
-    /*fun onAddNewItem(view: View?) {
-        var products = arrayListOf<String>()
-        for (x in data.productsList)
-            products.add(x.description)
-        val view = LayoutInflater.from(this).inflate(R.layout.create_item_dialog, null)
-        var dataAdapter = ArrayAdapter<String>(this, R.layout.spinner_list_item, products)
-        spinner_items_dialog.adapter = dataAdapter
-        val dialog = AlertDialog.Builder(this).setTitle("New Item").setView(view).setIcon(android.R.drawable.ic_menu_add)
-                .setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, which ->
-                    var edit = view.findViewById<EditText>(R.id.eT_newItem)
-                    Toast.makeText(this,"${edit.text} created", Toast.LENGTH_LONG).show()
-                })
-                .setNeutralButton("Create New Item", DialogInterface.OnClickListener { dialog, which ->
-                    Toast.makeText(this, "Create New Item", Toast.LENGTH_LONG).show()
-                })
-                .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which ->
-                    Toast.makeText(this,"" + "Cancel", Toast.LENGTH_LONG).show()
-                })
-                .setCancelable(true)
-        dialog.create().show()
-    }*/
+    fun onCreateNewItem(view: View) {
+        val intent = Intent(this, CreateNewItem::class.java)
+        startActivity(intent)
+    }
 
     override fun onItemClick(position: Int) {
         Toast.makeText(this, "Item $position clicked", Toast.LENGTH_LONG).show()

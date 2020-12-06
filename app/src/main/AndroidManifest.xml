@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMOV_TP">
-        <activity android:name=".CreateNewItem"></activity>
+        <activity android:name=".CreateNewItem" />
         <activity
             android:name=".CreateNewList"
             android:parentActivityName=".MainActivity"

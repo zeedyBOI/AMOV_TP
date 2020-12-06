@@ -18,8 +18,6 @@ class CreateNewList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_list)
-        for (i in 1..20)
-            data.productsList.add(Product(description= "Juice", priceHistory = arrayListOf(5.00, 10.00), notes = "", category = "Drinks", srcimg = ""))
         val list1 = ShoppingList("Continente","€10,55", arrayListOf())
         val list2 = ShoppingList("Minipreço", "€20,42", arrayListOf())
         val list3 = ShoppingList("Lidl", "€420.69", arrayListOf())
@@ -44,7 +42,7 @@ class CreateNewList : AppCompatActivity() {
         finish()
     }
 
-    fun onCancel(view: View) {
+    fun onCancelList(view: View) {
         finish()
     }
 

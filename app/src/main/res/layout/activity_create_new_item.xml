@@ -29,7 +29,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -42,15 +41,17 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
             android:text="@string/cancel"
+            android:onClick="onCancelItem"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_create_new_list"
+            android:id="@+id/btn_create_new_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
             android:text="@string/submit"
+            android:onClick="onCreateItem"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

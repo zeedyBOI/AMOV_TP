@@ -2,7 +2,9 @@ package pt.isec.amov_tp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
+import kotlinx.android.synthetic.main.activity_create_new_item.*
 import kotlinx.android.synthetic.main.activity_create_new_list.*
 import pt.isec.amov_tp.data.Data
 import pt.isec.amov_tp.data.Product
@@ -17,10 +19,21 @@ class CreateNewItem : AppCompatActivity() {
             data.productsList.add(Product(description= getStr(5,10), priceHistory = arrayListOf(5.00, 10.00), notes = "", category = "Drinks", srcimg = ""))
         var list = arrayListOf<String>()
         list.add("No Template")
-        for (x in data.shopList)
-            list.add(x.name)
+        for (x in data.productsList)
+            list.add(x.description)
         var dataAdapter = ArrayAdapter<String>(this, R.layout.spinner_item, list)
-        spinner_lists.adapter = dataAdapter
+        spinner_items.adapter = dataAdapter
+    }
+
+    fun onCreateItem(view: View) {
+        if (spinner_items.selectedItem == "No Template")
+
+        else
+
+    }
+
+    fun onCancelItem(view: View) {
+        finish()
     }
 
     fun getStr(minc:Int,maxc: Int) : String {
