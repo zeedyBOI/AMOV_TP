@@ -29,8 +29,7 @@
             android:layout_height="match_parent"
             android:text="@string/list_title"
             android:textSize="23sp"
-            android:layout_gravity="center"
-            android:onClick="onShoppingList" />
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/list_price"

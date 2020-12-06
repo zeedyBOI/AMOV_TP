@@ -9,7 +9,4 @@ data class Item(var product: Product, var quantity : Quantity, var inCart : Bool
         return "Item(category=$product.category, description='$product.description', brand='$product.brand', quantity='$quantity', priceHistory=${product.priceHistory}, notes='$product.notes')"
     }
 
-    fun toStringSmall() : String {
-        return product.description;
-    }
 }
