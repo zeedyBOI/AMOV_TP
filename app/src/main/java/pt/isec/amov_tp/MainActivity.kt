@@ -1,29 +1,32 @@
 package pt.isec.amov_tp
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Environment
 import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item.*
+import org.json.JSONObject
 import pt.isec.amov_tp.data.*
+import java.io.*
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(), RVAdapterList.OnItemClickListener, RVAdapterList.OnCheckedChangeListener {
     var data : Data = Data(arrayListOf(), arrayListOf(), arrayListOf(), arrayListOf())
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         for (i in 0..20)
             data.productsList.add(Product(getStr(5, 10), arrayListOf(), "notes", "brand", "category", "image"))
-        val list1 = ShoppingList("Continente","€10,55", arrayListOf(Item(data.productsList.get(1), Quantity(1.0, "caixa"), false)))
+        val list1 = ShoppingList("Continente","€10,55", arrayListOf())
         val list2 = ShoppingList("Minipreço", "€20,42", arrayListOf())
-        val list3 = ShoppingList("Lidl", "€420.69", arrayListOf())
+        val list3 = ShoppingList("Lidl", "€40.70", arrayListOf())
         data.shopList.add(list1)
         data.shopList.add(list2)
         data.shopList.add(list3)
@@ -40,17 +43,19 @@ class MainActivity : AppCompatActivity(), RVAdapterList.OnItemClickListener, RVA
         return str
     }
 
-    private fun getShoppingList(view: View) : ShoppingList? {
-        var listName = view.findViewById<TextView>(R.id.list_name)
-        data.shopList.forEach {
-            if (it.name.equals(listName))
-            return it
+    fun checkPermissions() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+            ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE), 1234)
         }
-        return null
     }
 
+
     fun onAddNewList(view: View?) {
-        val intent = Intent(this, CreateNewList::class.java)
+        val intent = Intent(this, CreateNewListActivity::class.java)
         startActivity(intent)
     }
 

@@ -1,5 +1,4 @@
 package pt.isec.amov_tp.data
-
 import java.io.Serializable
 
 data class ShoppingList(var name : String, var listItems : ArrayList<Item>) : Serializable {
@@ -15,9 +14,10 @@ data class ShoppingList(var name : String, var listItems : ArrayList<Item>) : Se
 
     fun getTotalPrice() : Double{
         var totalPrice : Double = 0.00
-        for(index in listItems) {
-            totalPrice += index.product.priceHistory[0]
-        }
+        if (listItems.size > 0)
+            for(index in listItems) {
+                totalPrice += index.product.priceHistory[0]
+            }
 
         return totalPrice
     }

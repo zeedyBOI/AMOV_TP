@@ -1,5 +1,7 @@
 package pt.isec.amov_tp.data
 
-data class Quantity(var amount: Double, var unit: String = "Unit(s)"){
+import java.io.Serializable
+
+data class Quantity(var amount: Double, var unit: String = "Unit(s)") : Serializable{
 
 }

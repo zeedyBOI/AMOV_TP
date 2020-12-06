@@ -1,5 +1,6 @@
 package pt.isec.amov_tp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,13 +11,22 @@ import pt.isec.amov_tp.data.Data
 import pt.isec.amov_tp.data.Product
 import kotlin.random.Random
 
-class CreateNewItem : AppCompatActivity() {
+class CreateNewItemActivity : AppCompatActivity() {
     var data = Data(arrayListOf(), arrayListOf(), arrayListOf(), arrayListOf())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_item)
-        for (i in 1..20)
-            data.productsList.add(Product(description= getStr(5,10), priceHistory = arrayListOf(5.00, 10.00), notes = "", category = "Drinks", srcimg = ""))
+        for (i in 1..20) {
+            data.productsList.add(
+                Product(
+                    description = getStr(5, 10),
+                    priceHistory = arrayListOf(5.00, 10.00),
+                    notes = "",
+                    category = "Drinks",
+                    srcimg = ""
+                )
+            )
+        }
         var list = arrayListOf<String>()
         list.add("No Template")
         for (x in data.productsList)
@@ -26,10 +36,13 @@ class CreateNewItem : AppCompatActivity() {
     }
 
     fun onCreateItem(view: View) {
-        if (spinner_items.selectedItem == "No Template")
-
+        if (spinner_items.selectedItem == "No Template") {
+            val intent = Intent(this, ProductCreatorActivity::class.java)
+            intent.putExtra("productName", et_create_new_item.text.toString())
+            startActivity(intent)
+        }
         else
-
+            TODO("not implemented")
     }
 
     fun onCancelItem(view: View) {

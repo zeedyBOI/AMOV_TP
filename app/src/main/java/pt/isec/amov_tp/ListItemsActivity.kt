@@ -50,7 +50,7 @@ class ListItemsActivity : AppCompatActivity(), RVAdapterItem.OnItemClickListener
     }
 
     fun onCreateNewItem(view: View) {
-        val intent = Intent(this, CreateNewItem::class.java)
+        val intent = Intent(this, CreateNewItemActivity::class.java)
         startActivity(intent)
     }
 

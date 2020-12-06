@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pt.isec.amov_tp">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMOV_TP">
-        <activity android:name=".CreateNewItem" />
         <activity
-            android:name=".CreateNewList"
+            android:name=".ProductCreatorActivity"
+            android:theme="@style/Theme.AMOV_TP.NoActionBar"/>
+        <activity
+            android:name=".CreateNewItemActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AMOV_TP.NoActionBar"/>
+        <activity
+            android:name=".CreateNewListActivity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AMOV_TP.NoActionBar" />
         <activity

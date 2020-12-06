@@ -10,4 +10,11 @@
     <string name="dialog_placeholder">New Item</string>
     <string name="dialog_create_new">Create New</string>
     <string name="cancel">Cancel</string>
+    <string name="change_image">Change Image</string>
+    <string name="brand">Brand</string>
+    <string name="item_brand_placeholder">Item Brand</string>
+    <string name="description">Description</string>
+    <string name="create">Create</string>
+    <string name="add_category">Add Category</string>
+    <string name="add_unit">Add Unit</string>
 </resources>
