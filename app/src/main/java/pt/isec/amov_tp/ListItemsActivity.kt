@@ -60,13 +60,4 @@ class ListItemsActivity : AppCompatActivity(), RVAdapterItem.OnItemClickListener
     override fun onCheckChanged(position: Int) {
         Toast.makeText(this, "Item $position checked", Toast.LENGTH_SHORT).show()
     }
-
-    fun getStr(minc:Int,maxc: Int) : String {
-        var str = ""
-        val nrc = Random.nextInt(minc,maxc)
-        repeat(nrc) {
-            str += Random.nextInt(65,90).toChar()
-        }
-        return str
-    }
 }

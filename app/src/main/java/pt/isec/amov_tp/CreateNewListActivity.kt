@@ -40,14 +40,4 @@ class CreateNewListActivity : AppCompatActivity() {
     fun onCancelList(view: View) {
         finish()
     }
-
-
-    fun getStr(minc:Int,maxc: Int) : String {
-        var str = ""
-        val nrc = Random.nextInt(minc,maxc)
-        repeat(nrc) {
-            str += Random.nextInt(65,90).toChar()
-        }
-        return str
-    }
 }

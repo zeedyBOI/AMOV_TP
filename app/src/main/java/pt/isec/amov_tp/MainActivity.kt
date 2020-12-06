@@ -22,18 +22,13 @@ class MainActivity : AppCompatActivity(), RVAdapterList.OnItemClickListener, RVA
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        data.startData()
         shoppingList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         shoppingList.adapter = RVAdapterList(data, this, this)
     }
 
-    fun getStr(minc:Int,maxc: Int) : String {
-        var str = ""
-        val nrc = Random.nextInt(minc,maxc)
-        repeat(nrc) {
-            str += Random.nextInt(65,90).toChar()
-        }
-        return str
+    override fun onResume() {
+        super.onResume()
+        data.startData()
     }
 
     fun checkPermissions() {

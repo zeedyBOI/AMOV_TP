@@ -36,15 +36,8 @@ class CreateNewItemActivity : AppCompatActivity() {
     }
 
     fun onCancelItem(view: View) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
         finish()
-    }
-
-    fun getStr(minc:Int,maxc: Int) : String {
-        var str = ""
-        val nrc = Random.nextInt(minc,maxc)
-        repeat(nrc) {
-            str += Random.nextInt(65,90).toChar()
-        }
-        return str
     }
 }

@@ -25,14 +25,6 @@ class ProductCreatorActivity : AppCompatActivity() {
         spinner_units.adapter = adapterUnits
     }
 
-    fun getStr(minc:Int,maxc: Int) : String {
-        var str = ""
-        val nrc = Random.nextInt(minc,maxc)
-        repeat(nrc) {
-            str += Random.nextInt(65,90).toChar()
-        }
-        return str
-    }
 
     fun onPriceHistory(view: View) {
         var price_list = arrayListOf<String>()
@@ -73,5 +65,11 @@ class ProductCreatorActivity : AppCompatActivity() {
         val intent = Intent(this, ListItemsActivity::class.java)
         intent.putExtra("listName", "Continente")
         startActivity(intent)
+    }
+
+    fun onCancelProduct(view: View) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
