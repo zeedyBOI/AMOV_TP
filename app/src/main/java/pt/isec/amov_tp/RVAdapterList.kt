@@ -44,7 +44,7 @@ class RVAdapterList(val data : Data, val listener: OnItemClickListener, val list
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.update(data.shopList[position].name, data.shopList[position].totalPrice)
+        holder.update(data.shopList[position].name, data.shopList[position].getTotalPrice().toString())
     }
 
     override fun getItemCount(): Int = data.shopList.size

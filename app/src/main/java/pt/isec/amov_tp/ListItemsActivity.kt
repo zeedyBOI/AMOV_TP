@@ -11,7 +11,7 @@ import pt.isec.amov_tp.data.*
 import kotlin.random.Random
 
 class ListItemsActivity : AppCompatActivity(), RVAdapterItem.OnItemClickListener, RVAdapterItem.OnCheckedChangeListener {
-    var data : Data = Data(arrayListOf(), arrayListOf(), arrayListOf())
+    var data : Data = Data(arrayListOf(), arrayListOf(), arrayListOf(), arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -11,7 +11,7 @@ import pt.isec.amov_tp.data.Product
 import kotlin.random.Random
 
 class CreateNewItem : AppCompatActivity() {
-    var data = Data(arrayListOf(), arrayListOf(), arrayListOf())
+    var data = Data(arrayListOf(), arrayListOf(), arrayListOf(), arrayListOf())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_item)
